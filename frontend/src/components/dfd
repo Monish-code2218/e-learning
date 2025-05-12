@@ -1,0 +1,16 @@
+<div className='columnTwo p-10 '>
+                    <h3 className='w-full  text-center text-gray-900 text-2xl font-bold font-manrope leading-9'>
+                        Course Payment
+                    </h3>
+                    <div>
+                        <p className='w-full text-center text-gray-900 text-xl font-manrope leading-9'>
+                            PAYMENT DETAILS
+                        </p>
+                        <div className='row'>
+                            <div className='col-6 pt'>
+                                <p className='hdng'>Course: {course?.title}</p>
+                                <p className='hdng'>Price: ${course?.price}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>

@@ -1,0 +1,47 @@
+ <Link to={`/${user._id}/dashboard`} className="common-btn">
+            Go to Dashboard
+          </Link>
+
+          import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { server } from "../../main";
+import "./paymentsuccess.css";
+import axios from "axios";
+
+const PaymentSuccess = () => {
+  const { id: _id } = useParams();
+  const [lectures, setLecture] = useState([]);
+
+  const fetchLecture = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/single/${_id}`);
+      setLecture(response.data);
+    } catch (error) {
+      console.error("Error fetching lecture:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchLecture();
+  }, []);
+
+  return (
+    <div className="payment-success-page">
+      <div className="success-message">
+        <h2>Payment Successful</h2>
+        <p>Your course subscription has been activated</p>
+        {lectures.map((lecture) => (
+          <div key={lecture._id} className="course-card">
+            <h3>{lecture.title}</h3>
+            <p>{lecture.description}</p>
+            <Link to={`/course/lecture/${lecture._id}`} className="common-btn">
+              View Course
+            </Link>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default PaymentSuccess;

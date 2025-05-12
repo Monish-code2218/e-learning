@@ -1,0 +1,46 @@
+import React,{useEffect, useState} from "react";
+import { Link } from "react-router-dom";
+import "./paymentsuccess.css";
+
+const PaymentSuccess = () => {
+  const [lectures, setLecture] = useState([]);
+
+
+  const fetchLecture = async () => {
+    try {
+      const response = await fetch(`${server}/lecture/get-lecture/${params.id}`) 
+        setLecture(response.data);
+    } catch (error) {
+      console.error("Error fetching lecture:", error);
+   
+    }
+  }
+
+  useEffect(() => {
+    fetchLecture();
+  }, []);
+
+  return (
+    <div className="payment-success-page">
+      <div className="success-message">
+        <h2>Payment Successful</h2>
+        <p>Your course subscription has been activated</p>
+        {lectures.map((lectuere) => (
+          <div key={lectuere._id} className="course-card">
+            <h3>{lectuere.title}</h3>
+            <p>{lectuere.description}</p>
+            <Link to={`/course/lecture/${lectuere._id}`} className="common-btn">
+              View Course
+            </Link>
+        ))}
+           
+       
+         
+          
+     
+      </div>
+    </div>
+  );
+};
+
+export default PaymentSuccess;
