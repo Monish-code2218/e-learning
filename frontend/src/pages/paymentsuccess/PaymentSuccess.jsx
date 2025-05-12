@@ -14,7 +14,7 @@ const PaymentSuccess = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get(`http://localhost:5000/api/single/${_id}`);
+      const response = await axios.get(`https://e-learning-8p1n.onrender.com/api/single/${_id}`);
       console.log("API Response:", response.data); // Debug API data
       // Ensure response is always an array
       setLectures([response.data.lecture]);

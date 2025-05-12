@@ -14,7 +14,7 @@ const PaymentSuccess = () => {
 
   const fetchLecture = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/single/${_id}`);
+      const response = await axios.get(`https://e-learning-8p1n.onrender.com/api/single/${_id}`);
       setLecture(response.data);
     } catch (error) {
       console.error("Error fetching lecture:", error);

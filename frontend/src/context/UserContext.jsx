@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-const server = "http://localhost:5000";
+const server = "https://e-learning-8p1n.onrender.com";
 import toast, { Toaster } from "react-hot-toast";
 
 const UserContext = createContext();
